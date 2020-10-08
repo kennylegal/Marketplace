@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+        <!--/login -->
+        <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="text-center icon">
+                        <span class="fa fa-unlock-alt" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="content-bottom">
+                        <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+
+                               {% for message in messages %}
+                                <ul class="list-login">
+                                  <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+
+                                            {{ message }}
+
+                                </div>
+                                <li class="clearfix"></li>
+                            </ul>
+                            {% endfor %}
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="username" id="text1" type="text" value="" placeholder="User Name" required="">
+                                </div>
+                            </div>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="password" id="myInput" type="Password" placeholder="Password">
+                                </div>
+                            </div>
+                            <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;">Sign In</button>
+                            </div>
+
+                            <ul class="list-login-bottom">
+                                <li class="">
+                                    <a href="{% url 'create_user' %}" class="editContent" style="outline: none; cursor: inherit;">Don't have an Account?</a>
+                                </li>
+
+                                <li class="clearfix"></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /login -->
+
+    {% endblock %}

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+       {% if owner %}
+
+    <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="text-center icon">
+                        <span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="content-bottom">
+                              <div class="card-header">
+                                <h3 class="card-title">{{ owner.user }}</h3>
+                              </div>
+                        <form action="{% url 'business_update' business_id %}" method="POST">{% csrf_token %}
+                            <div class="field-group">
+
+                            {% if saved is True %}
+                                <div class="btn" style="outline: none; cursor: inherit;">The Details was successfully updated.</div>
+                            {% elif saved is False %}
+                                <div class="btn" style="outline: none; cursor: inherit;">An error occurred while updating your business details.</div>
+                            {% endif %}
+
+                                <label for="Owners Phone Number">Owners Phone Number</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="phone_no" id="myInput" value="{{ owner.phone_no }}" type="text" placeholder="phone_no">
+                                </div>
+                            <label for="company Name">Company Name</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="company_name" id="myInput" value="{{ owner.company_name }}" type="text" placeholder="Company Name">
+                                </div>
+                            </div>
+                            <label for="company Address">Company Address</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="company_address" id="text1" type="text" value="{{ owner.company_address }}" placeholder="Company address" required="">
+                                </div>
+                            </div>
+                            <label for="Service title">Service title</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="service_title" id="text1" type="text" value="{{ owner.service_title }}" placeholder="service_title" required="">
+                                </div>
+                            </div>
+                            <label for="Service Description">Service Description</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="service_description" id="text1" type="text" value="{{ owner.service_description }}" placeholder="service_description" required="">
+                                </div>
+                            </div>
+                            <label for="CAC code">CAC code</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="CAC_code" id="text1" type="text" value="{{ owner.CAC_code }}" placeholder="Enter your corporate affairs code" required="">
+                                </div>
+                            </div>
+                            <label for="guarantor's name">Guarantors Name</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="guarantors_name" id="text1" type="text" value="{{ owner.guarantors_name }}" placeholder="Enter your guarantor's name" required="">
+                                </div>
+                            </div>
+                            <label for="guarantor's phone_no">Guarantors Phone No</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="guarantors_phone_no" id="text1" type="text" value="{{ owner.guarantors_phone_no }}" placeholder="Enter your guarantor's phone_no" required="">
+                                </div>
+                            </div>
+                            <label for="guarantor's address">Guarantors Address</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="guarantors_address" id="text1" type="text" value="{{ owner.guarantors_address }}" placeholder="Enter your guarantor's address" required="">
+                                </div>
+                            </div>
+                            <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;">Update</button>
+                            </div>
+                                <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;"><a href="{% url 'BusinessProfile' %}">Go back to business Profile</a></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% else %}
+        <div class="btn">This Business owner is invalid.</div>
+    {% endif %}
+
+    {% endblock %}
+</body>
+</html>

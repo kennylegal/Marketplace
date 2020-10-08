@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        {% if customer %}
+        <table class="table table-bordered mt-4">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Phone_no</th>
+                <th>Address</th>
+<!--                <th>Social Media</th>-->
+                <th>Actions</th>
+            </tr>
+            </thead>
+            {% for customers in customer %}
+                <tbody>
+                <tr>
+                    <td>{{customers.name}}</td>
+                    <td>{{customers.phone_no}}</td>
+                    <td>{{customers.home_address}}</td>
+                    <td>
+                        <a href="{% url 'customer_details' customer_name=customers.name %}">Detail</a>
+                    </td>
+                </tr>
+                </tbody>
+            {% endfor %}
+
+            <div class="container col-8">
+
+            </div>
+        </table>
+    {% else %}
+        <p>No Customer is available.</p>
+    {% endif %}
+
+{% endblock %}

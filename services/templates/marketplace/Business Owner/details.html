@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+       {% if owner %}
+
+    <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="text-center icon">
+                        <span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="content-bottom">
+                              <div class="card-header">
+                                <h3 class="card-title">{{ owner.user }}</h3>
+                              </div>
+                        <div class="field-group">
+
+
+                                <label>Company Name</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ owner.company_name }}" disabled>
+                                </div>
+                            </div>
+
+                                <label>Service Title</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ owner.service_title }}" disabled>
+                                </div>
+                            </div>
+
+                                <label>Company Address</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ owner.company_address }}" disabled>
+                                </div>
+                            </div>
+
+                                  <label>Mobile Number</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ owner.phone_no }}" disabled>
+                                </div>
+                            </div>
+
+                                <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;"><a href="{% url 'business_owner' %}">Go back to list</a></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% else %}
+        <div class="btn">This Business owner is invalid.</div>
+    {% endif %}
+
+    {% endblock %}
+</body>
+</html>

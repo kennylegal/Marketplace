@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        {% if staff %}
+
+        <table class="table table-bordered mt-4">
+
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Staff Code</th>
+                            <th>Job Title</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+            {% for staffs in staff %}
+
+                    <tbody>
+                    <tr>
+                        <td>{{staffs.user}}</td>
+                        <td>{{staffs.job_title}}</td>
+                        <td>{{staffs.staff_code}}</td>
+                        <td>
+                            <a href="{% url 'detailPage' staff_id=staffs.id %}">Details</a>
+                            <a href="{% url 'staffUpdate' staff_id=staffs.id %}">update</a>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+
+            {% endfor %}
+
+            <div class="container col-8">
+
+            </div>
+        </table>
+    {% else %}
+        <p>No Staff is available.</p>
+    {% endif %}
+
+{% endblock %}

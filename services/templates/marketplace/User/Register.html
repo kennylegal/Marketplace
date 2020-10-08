@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+            <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="text-center icon">
+                        <span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="content-bottom">
+                        <form action="{% url 'create_user' %}" method="post">{% csrf_token %}
+                            <div class="field-group">
+
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="first_name" id="myInput" type="text" placeholder="first name">
+                                </div>
+
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="last_name" id="myInput" type="text" placeholder="last name">
+                                </div>
+                            </div>
+
+                            </div>
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="username" id="text1" type="text" value="" placeholder="User Name" required="">
+                                </div>
+                            </div>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="email" id="text1" type="email" value="" placeholder="User Email" required="">
+                                </div>
+                            </div>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="password" id="text1" type="password" value="" placeholder="password" required="">
+                                </div>
+                            </div>
+                            <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;">Sign Up</button>
+                            </div>
+                            <div class="list-login-bottom text-center mt-lg-5 mt-4">
+
+                                <a href="#" class="editContent" style="outline: none; cursor: inherit;">By clicking Signup, I agree to your terms</a>
+
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock %}

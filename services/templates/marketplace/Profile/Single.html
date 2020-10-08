@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+    {% block content %}
+
+        <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container py-md-5">
+                <!-- product right -->
+                <div class="left-ads-display wthree">
+                    <div class="row">
+                        <div class="desc1-left col-md-6">
+                            <img src="{% static 'marketplace/images/img5.jpg' %}" class="img-fluid" alt="" style="outline: none; cursor: inherit;">
+                        </div>
+                        <div class="desc1-right col-md-6 pl-lg-3">
+                            <h3 class="editContent" style="outline: none; cursor: inherit;">{{ details.name }}</h3>
+                            <h5 class="editContent" style="outline: none; cursor: inherit;"> {{ details.phone_no }}</h5>
+                            <a href="{% url 'update_customer' customer_name=details.name %}" class="editContent" style="outline: none; cursor: inherit;">click to update your customer profile</a><br>
+                            <div class="available mt-3">
+                                <form action="#" method="post" class="">
+                                    <button class="w3pvt-newsletter subscribe-sec" style="outline: none; cursor: inherit;"><a href="{% url 'business_owner' %}" >Look For business owners</a></button>
+
+                                </form>
+                                <button class="btn submit" style="outline: none; cursor: inherit;"><a href="{% url 'BusinessProfile' %}">View your business Profile</a></button>
+                            </div>
+                            <div class="share-desc mt-5">
+                                <div class="share text-left">
+                                    <h4 class="editContent" style="outline: none; cursor: inherit;">Share Product :</h4>
+                                    <div class="social-ficons mt-4">
+                                        <ul>
+                                            <li><a href="https://web.facebook.com/" class="facebook editContent" style="outline: none; cursor: inherit;"><span class="fa fa-facebook" style="outline: none; cursor: inherit;"></span> Facebook</a></li>
+                                            <li><a href="#" class="twitter editContent" style="outline: none; cursor: inherit;"><span class="fa fa-twitter" style="outline: none; cursor: inherit;"></span> Twitter</a></li>
+                                            <li><a href="https://myaccount.google.com/" class="google editContent" style="outline: none; cursor: inherit;"><span class="fa fa-google" style="outline: none; cursor: inherit;"></span>Google</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    {% endblock %}

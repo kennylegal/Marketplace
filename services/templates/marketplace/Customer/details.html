@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+       {% if customer %}
+
+    <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="text-center icon">
+                        <span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="content-bottom">
+                              <div class="card-header">
+                                <h3 class="card-title">{{ customer.name }}</h3>
+                              </div>
+                        <div class="field-group">
+
+
+                                <label>Mobile Number</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ customer.phone_no }}" disabled>
+                                </div>
+                            </div>
+
+                                <label>Social Media</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ customer.social_media }}" disabled>
+                                </div>
+                            </div>
+
+                                <label>Home Address</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input placeholder="{{ customer.home_address }}" disabled>
+                                </div>
+                            </div>
+
+                                <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;"><a href="{% url 'customer_index' %}">Go back to customer's list</a></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% else %}
+        <div class="btn">This User owner is invalid.</div>
+    {% endif %}
+
+    {% endblock %}
+</body>
+</html>

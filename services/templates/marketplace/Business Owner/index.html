@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+     {% if owner %}
+        <table class="table table-bordered mt-4">
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Phone_no</th>
+                <th>company name</th>
+                <th>company Address</th>
+                <th>service title</th>
+
+<!--                <th>Social Media</th>-->
+                <th>Actions</th>
+            </tr>
+            </thead>
+            {% for owners in owner %}
+
+                <tbody>
+                <tr>
+                    <td>{{owners.user}}</td>
+                    <td>{{owners.phone_no}}</td>
+                    <td>{{owners.company_name}}</td>
+                    <td>{{owners.company_address}}</td>
+                    <td>{{owners.service_title}}</td>
+                    <td>
+                        <a href="{% url 'business_detail' business_id=owners.id %}">Details</a>
+                    </td>
+                </tr>
+                </tbody>
+
+
+
+
+
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No Business owner is available.</p>
+    {% endif %}
+
+{% endblock %}

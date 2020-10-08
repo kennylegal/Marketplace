@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+       {% if staff %}
+
+    <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container">
+                <div class="content-grid">
+                    <div class="text-center icon">
+                        <span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="content-bottom">
+                              <div class="card-header">
+                                <h3 class="card-title">{{ staff.user }}</h3>
+                              </div>
+                        <form action="{% url 'staffUpdate' staff_id %}" method="POST">{% csrf_token %}
+                            <div class="field-group">
+
+                            {% if saved is True %}
+                                <div class="btn" style="outline: none; cursor: inherit;">The Details was successfully updated.</div>
+                            {% elif saved is False %}
+                                <div class="btn" style="outline: none; cursor: inherit;">An error occurred while updating your Details.</div>
+                            {% endif %}
+                            </div>
+
+                             <label for="">DOB</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="DOB" type="date" id="myInput" value="{{ staff.DOB }}" type="text" placeholder="Date of Birth">
+                                </div>
+                            </div>
+
+                            <label for=" Your Home Address">Home Adress</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="address" id="text1" type="text" value="{{ staff.address }}" placeholder="Home address" required="">
+                                </div>
+                            </div>
+
+                            <label for="job_title">job_title</label>
+                            <div class="field-group">
+
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input name="job_title" id="text1" value="{{ staff.job_title }}" placeholder="Job title" required="">
+                                </div>
+                            </div>
+
+                            <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;">Update</button>
+                            </div>
+                             <div class="content-input-field">
+                                <button type="submit" class="btn" style="outline: none; cursor: inherit;"><a href="{% url 'staffList' %}" class="editContent" style="outline: none; cursor: inherit;">Go back to staff list</a></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    {% else %}
+        <div class="btn">This staff is invalid.</div>
+    {% endif %}
+
+    {% endblock %}

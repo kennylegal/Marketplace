@@ -1,0 +1,185 @@
+{% load static %}
+
+<html lang="en">
+<html>
+<head>
+    <!-- //Meta tag Keywords -->
+    <title>Marketplace</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- //Meta tag Keywords -->
+    <!-- Custom Theme files -->
+    <link href="{% static 'marketplace/css/bootstrap.css' %}" type="text/css" rel="stylesheet" media="all">
+    <link href="{% static 'marketplace/css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="{% static 'marketplace/css/font-awesome.css' %}" rel="stylesheet">
+    <!-- //Custom Theme files -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet">
+    <!-- //Fonts -->
+</head>
+
+<body>
+
+    <div id="page" class="page">
+
+        <!-- //copyright --><div class="main-sec inner-page editContent" style="outline: none; cursor: inherit;">
+            <!-- //header -->
+            <header class="py-sm-3 pt-3 pb-2" id="home">
+                <div class="container">
+                    <!-- nav -->
+                    <div class="top-w3pvt d-flex">
+                        <div id="logo">
+                            <h1> <a href="{% url 'indexPage' %}" class="editContent" style="outline: none; cursor: inherit;"><span class="log-w3pvt editcontent">M</span>arketplace</a> <label class="sub-des editContent" style="outline: none; cursor: inherit;">Community Store</label></h1>
+                        </div>
+
+                        {% if request.user.is_authenticated %}
+
+                        <div class="forms ml-auto">
+                            <a href="{% url 'userPage' %}">
+                            <p class="btn" style="outline: none; cursor: inherit;"><span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>Hello, {{ request.user }}</p>
+                        </a>
+                        </div>
+
+                        <div class="forms ml-auto">
+                            <a href="{% url 'logout' %}" class="btn" style="outline: none; cursor: inherit;"><span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>Logout</a>
+                        </div>
+
+                        {% else %}
+                          <div class="forms ml-auto">
+                            <a href="{% url 'login' %}" class="btn"><span class="fa fa-user-circle-o"></span> Sign In</a>
+                            <a href="{% url 'create_user' %}" class="btn"><span class="fa fa-pencil-square-o"></span> Sign Up</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="nav-top-wthree">
+                        <nav>
+                            <label for="drop" class="toggle"><span class="fa fa-bars" style="outline: none; cursor: inherit;"></span></label>
+                            <input type="checkbox" id="drop">
+                            <ul class="menu">
+                                <li class="active"><a href="{% url 'indexPage' %}" style="outline: none; cursor: inherit;">Home</a></li>
+                                <li><a href="{% url 'aboutPage' %}" style="outline: none; cursor: inherit;">About Us</a></li>
+
+                                <li><a href="{% url 'contactPage' %}" style="outline: none; cursor: inherit;">Contact Us</a></li>
+                            </ul>
+                        </nav>
+                        <!-- //nav -->
+                        <div class="search-form ml-auto">
+                            <div class="form-w3layouts-grid">
+                                <form action="{% url 'search' %}" method="get" class="newsletter editContent">
+                                    <input name='query' class="search editContent" type="search" placeholder="Search here..." required="">
+                                    <button class="form-control btn"><span class="fa fa-search"></span></button>
+                                </form>
+                            </div>
+                        </div>
+                </div>
+            </header>
+        </div>
+            <!-- //header -->
+
+            {% block content %}
+
+            {% endblock %}
+
+                        <!--/shipping-->
+        <section class="shipping-wthree">
+            <div class="shiopping-grids d-lg-flex">
+                <div class="col-lg-4 shiopping-w3pvt-gd text-center editContent" style="outline: none; cursor: inherit;">
+                    <div class="icon-gd"><span class="fa fa-truck" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
+                    </div>
+                    <div class="icon-gd-info">
+                        <h3 class="editContent" style="outline: none; cursor: inherit;">BETTER SATISFACTION</h3>
+                        <p class="editContent" style="outline: none; cursor: inherit;">With all users</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 shiopping-w3pvt-gd sec text-center editContent" style="outline: none; cursor: inherit;">
+                    <div class="icon-gd"><span class="fa fa-bullhorn" aria-hidden="true" style="outline: none; cursor: inherit;"></span></div>
+                    <div class="icon-gd-info">
+                        <h3 class="editContent" style="outline: none; cursor: inherit;">FREE RESPONSE</h3>
+                        <p class="editContent" style="outline: none; cursor: inherit;">On 1st transaction in 30 days</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 shiopping-w3pvt-gd text-center editContent" style="outline: none; cursor: inherit;">
+                    <div class="icon-gd"> <span class="fa fa-gift" aria-hidden="true" style="outline: none; cursor: inherit;"></span></div>
+                    <div class="icon-gd-info">
+                        <h3 class="editContent" style="outline: none; cursor: inherit;">MEMBER BENEFITS</h3>
+                        <p class="editContent" style="outline: none; cursor: inherit;">Register &amp; get access to different users</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!--//shipping-->
+        <!-- footer -->
+        <div class="footer_agileinfo_topf py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container py-md-5">
+                <div class="row">
+                    <div class="col-lg-3 footer_wthree_gridf mt-lg-5">
+                        <h2><a href="index.html" class="editContent" style="outline: none; cursor: inherit;"><span>M</span>arketplace
+                            </a> </h2>
+                        <label class="sub-des2 editContent" style="outline: none; cursor: inherit;">Community Store</label>
+                    </div>
+                    <div class="col-lg-3 footer_wthree_gridf mt-md-0 mt-4">
+                        <ul class="footer_wthree_gridf_list footer">
+                            <li>
+                                <a href="{% url 'indexPage' %}" style="outline: none; cursor: inherit;"><span class="fa fa-angle-right" aria-hidden="true" style="outline: none; cursor: inherit;"></span> Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'aboutPage' %}" style="outline: none; cursor: inherit;"><span class="fa fa-angle-right" aria-hidden="true" style="outline: none; cursor: inherit;"></span> About</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contactPage' %}" style="outline: none; cursor: inherit;"><span class="fa fa-angle-right" aria-hidden="true" style="outline: none; cursor: inherit;"></span> Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 footer_wthree_gridf mt-md-0 mt-sm-4 mt-3">
+                        <ul class="footer_wthree_gridf_list footer">
+                            <li>
+                                <a href="{% url 'login' %}" style="outline: none; cursor: inherit;"><span class="fa fa-angle-right" aria-hidden="true" style="outline: none; cursor: inherit;"></span> Login </a>
+                            </li>
+
+                            <li>
+                                   <a href="{% url 'create_user' %}" style="outline: none; cursor: inherit;"><span class="fa fa-angle-right" aria-hidden="true" style="outline: none; cursor: inherit;"></span>Register</a>
+                            </li>
+                            <li>
+                                <a href="#" style="outline: none; cursor: inherit;"><span class="fa fa-angle-right" aria-hidden="true" style="outline: none; cursor: inherit;"></span>Back to top</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="w3ls-fsocial-grid">
+                    <h3 class="sub-w3ls-headf editContent" style="outline: none; cursor: inherit;">Follow Us</h3>
+                    <div class="social-ficons">
+                        <ul>
+                            <li><a href="https://web.facebook.com/Space-tech-102381524627273/" class="facebook editContent" style="outline: none; cursor: inherit;"><span class="fa fa-facebook" style="outline: none; cursor: inherit;"></span> Facebook</a></li>
+                            <li><a href="#" class="twitter editContent" style="outline: none; cursor: inherit;"><span class="fa fa-twitter" style="outline: none; cursor: inherit;"></span> Twitter</a></li>
+                            <li><a href="https://myaccount.google.com/profile" class="google editContent" style="outline: none; cursor: inherit;"><span class="fa fa-google" style="outline: none; cursor: inherit;"></span>Google</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="move-top text-center mt-lg-4 mt-3">
+                    <a href="#home"><span class="fa fa-angle-double-up" aria-hidden="true" style="outline: none; cursor: inherit;"></span></a>
+                </div>
+            </div>
+        </div>
+        <!-- //footer -->
+
+        <!-- copyright -->
+        <div class="cpy-right text-center py-3">
+            <p>© 2020 Marketplace. All rights reserved | Design by SPACE TECHNOLOGY</p>
+
+        </div>
+        <!-- //copyright --></div>
+    <!-- /#page -->
+
+    <!-- Font-Awesome-Icons-CSS -->
+
+
+
+
+
+</body>
+</html>

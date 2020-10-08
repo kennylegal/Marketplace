@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+    {% block content %}
+
+                <!--/banner-bottom -->
+        <section class="banner-bottom py-5">
+            <div class="container py-md-5">
+                <div class="row grids-wthree-info">
+                    <div class="col-lg-6 bag-img">
+                        <img src="{% static 'marketplace/images/img5.jpg' %}" class="img-fluid" alt="" style="outline: none; cursor: inherit;">
+                    </div>
+                    <div class="col-lg-6 ab-info-con ab-inf-page text-left">
+                        <h4 class="editContent" style="outline: none; cursor: inherit;">About Our Service</h4>
+                        <p class="editContent" style="outline: none; cursor: inherit;">We offer Fast customer to Business owner's relationship For every registered users in Abeokuta.</p>
+                    </div>
+                </div>
+                <div class="row grids-wthree-info text-center">
+                         <div class="col-lg-4 ab-content">
+                        <div class="ab-info-con">
+                            <h4 class="editContent">Fast &amp; Affordable Services</h4>
+                            <p class="editContent">Our business owners dont waste time.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ab-content">
+                        <div class="ab-info-con">
+                            <h4 class="editContent">Safe &amp; Secure Transactions</h4>
+                            <p class="editContent">Making Sure Business owners don't get scammed .</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 ab-content">
+                        <div class="ab-info-con">
+                            <h4 class="editContent">100% Customer Satisfaction</h4>
+                            <p class="editContent">Providing Services to Customer every where in Abk.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- /banner-bottom -->
+        <!--/banner-bottom -->
+        <section class="collections editContent" style="outline: none; cursor: inherit;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8 ab-content-img bg bg1" style="outline: none; cursor: inherit;">
+
+                    </div>
+                    <div class="col-md-4 ab-content text-center p-lg-5 p-3 my-lg-5">
+                        <h4 class="editContent" style="outline: none; cursor: inherit;">Our lives</h4>
+                        <p class="editContent" style="outline: none; cursor: inherit;">Get connected to business companies around the world.</p>
+                        <a href="{% url 'business_owner' %}" class="btn shop mt-3" style="outline: none; cursor: inherit;">Market</a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /banner-bottom -->
+        <!--/collections -->
+        <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container py-md-5">
+
+                <h3 class="title-wthree mb-lg-5 mb-4 text-center editContent" style="outline: none; cursor: inherit;">Safety Meets Style </h3>
+                <div class="row text-center">
+
+
+                    <div class="col-md-4 content-gd-wthree">
+                        <img src="{% static 'marketplace/images/img4.jpg' %}" class="img-fluid" alt="" style="outline: none; cursor: inherit;">
+                    </div>
+                    <div class="col-md-4 content-gd-wthree ab-content py-lg-5 my-lg-5">
+                        <h4 class="editContent" style="outline: none; cursor: inherit;">Need Extra Space For Your Business ?</h4>
+                        <p class="editContent" style="outline: none; cursor: inherit;">.</p>
+                        <a href="{% url 'create_user' %}" class="btn shop mt-3" style="outline: none; cursor: inherit;">Get One</a>
+
+                    </div>
+                    <div class="col-md-4 content-gd-wthree">
+                        <img src="{% static 'marketplace/images/img4.jpg' %}" class="img-fluid" alt="" style="outline: none; cursor: inherit;">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- //collections-->
+        <!-- /mid-section -->
+
+        <!--/newsletter -->
+               <section class="newsletter-w3pvt py-5">
+            <div class="container py-md-5">
+
+            </div>
+        </section>
+        <!--//newsletter -->
+
+    {% endblock %}

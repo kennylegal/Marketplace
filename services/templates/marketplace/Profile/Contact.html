@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+
+           <section class="banner-bottom py-5 editContent" style="outline: none; cursor: inherit;">
+            <div class="container py-md-5">
+                <h3 class="title-wthree mb-lg-5 mb-4 text-center editContent" style="outline: none; cursor: inherit;">Contact Us </h3>
+                <div class="row contact_information">
+                    <div class="col-md-6 editContent" style="outline: none; cursor: inherit;">
+                        <div class="contact_right p-lg-5 p-4 editContent" style="outline: none; cursor: inherit;">
+                            <form action="#" method="post">
+                                {% csrf_token %}
+
+
+                                <div class="content-input-field field-group editContent" style="outline: none; cursor: inherit;">
+                                    <textarea placeholder="Your Message Here..." required=""></textarea>
+                                </div>
+
+                                <div class="content-input-field field-group editContent" style="outline: none; cursor: inherit;">
+                                    <button type="submit" class="btn" style="outline: none; cursor: inherit;">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 contact_left p-4 editContent" style="outline: none; cursor: inherit;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6350041.310790406!2d30.68773492426509!3d39.0014851732576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b0155c964f2671%3A0x40d9dbd42a625f2a!2sTurkey!5e0!3m2!1sen!2sin!4v1522753415269"></iframe>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mt-lg-4 contact-inn-w3pvt">
+                        <div class="mt-5 information-wthree">
+                            <h4 class="text-uppercase mb-4 editContent" style="outline: none; cursor: inherit;"><span class="fa fa-comments" style="outline: none; cursor: inherit;"></span> Communication</h4>
+                            <p class="cont-wthree-para mb-3 text-capitalize editContent" style="outline: none; cursor: inherit;">for general queries, customers and business owners issues, please email us at <a href="mailto:legalspace02@gmail.com" class="editContent" style="outline: none; cursor: inherit;">info@example.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-lg-4 contact-inn-w3pvt">
+                        <div class="mt-5 information-wthree">
+                            <h4 class="text-uppercase mb-4 editContent" style="outline: none; cursor: inherit;"><span class="fa fa-life-ring" style="outline: none; cursor: inherit;"></span> Technical Support</h4>
+                            <p class="cont-wthree-para mb-3 text-capitalize editContent" style="outline: none; cursor: inherit;">we are ready to help! if you have any queries or issues, contact us for support <label class="editContent" style="outline: none; cursor: inherit;">+234 81 465 04 920</label>.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-lg-4 contact-inn-w3pvt">
+                        <div class="mt-5 information-wthree">
+                            <h4 class="text-uppercase mb-4 editContent" style="outline: none; cursor: inherit;"><span class="fa fa-map" style="outline: none; cursor: inherit;"></span> Others</h4>
+                            <p class="cont-wthree-para mb-3 text-capitalize editContent" style="outline: none; cursor: inherit;">we are ready to help! if you have any queries or issues, contact us for support <label class="editContent" style="outline: none; cursor: inherit;">+12 388 455 6789</label>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--//contact -->
+
+
+        <!--/newsletter -->
+        <section class="newsletter-w3pvt py-5">
+            <div class="container py-md-5">
+            </div>
+        </section>
+
+    {% endblock %}
