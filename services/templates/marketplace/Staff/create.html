@@ -24,11 +24,24 @@
                             {% endif %}
                             </div>
 
+                            <label for="">Name</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input disabled type="text" id="myInput" value="{{ request.user }}" placeholder="Staff Name">
+                                </div>
+                            </div>
+
+                            <label>Staff Code</label>
+                            <div class="field-group">
+                                <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
+                                    <input value="{{ staff.staff_code }}" disabled>
+                                </div>
+                            </div>
 
                                <label for="">DOB</label>
                             <div class="field-group">
                                 <div class="content-input-field editContent" style="outline: none; cursor: inherit;">
-                                    <input required name="DOB" type="date" id="myInput" value="{{ staff.DOB }}" type="text" placeholder="Date of Birth">
+                                    <input required name="DOB" type="date" id="myInput" value="{{ staff.DOB }}" placeholder="Date of Birth">
                                 </div>
                             </div>
 

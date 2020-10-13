@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends '404.html' %}
+
+{% block image %}
+
+<img src="{% static 'marketplace/images/401.jpg' %}" class="img-fluid" alt="" style="outline: none; cursor: inherit;">
+<div class="container">
+    <p style="outline: none; cursor: inherit; justify-content: center" >
+        You Are Not Authorized to view this Page
+    </p>
+</div>
+{% endblock %}

@@ -80,4 +80,3 @@ class DjangoORMForStaffRepository(Staff_Repository):
         except Staff.DoesNotExist as error:
             print('staff does not exist')
             raise error
-

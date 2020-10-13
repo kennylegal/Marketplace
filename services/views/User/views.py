@@ -5,12 +5,12 @@ from services.dto.Userdto import UserCreateDto
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
-from services.decorator import unauthorized_user, allowed_users
+from services.decorator import unauthorized_user, staff_only
 from django.contrib import messages
 
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+@staff_only
 def list(request):
     user = service_container.user_services().listUsers()
     context = {
@@ -20,7 +20,7 @@ def list(request):
 
 
 @login_required(login_url='login')
-@allowed_users(allowed_roles=['admin'])
+@staff_only
 def userDetail(request, user_id):
     user = get_object_or_404(User, id=user_id)
     context = {
