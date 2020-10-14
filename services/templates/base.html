@@ -1,7 +1,6 @@
 {% load static %}
 
 <html lang="en">
-<html>
 <head>
     <!-- //Meta tag Keywords -->
     <title>Marketplace</title>
@@ -36,12 +35,7 @@
                         {% if request.user.is_authenticated %}
 
                         <div class="forms ml-auto">
-                            <a href="{% url 'userPage' %}">
-                            <p class="btn" style="outline: none; cursor: inherit;"><span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>Hello, {{ request.user }}</p>
-                        </a>
-                        </div>
-
-                        <div class="forms ml-auto">
+                            <a href="{% url 'userPage' %}" class="btn"><span class="fa fa-user-circle-o"></span>Hello, {{ request.user }}</a>
                             <a href="{% url 'logout' %}" class="btn" style="outline: none; cursor: inherit;"><span class="fa fa-user-circle-o" style="outline: none; cursor: inherit;"></span>Logout</a>
                         </div>
 
@@ -72,6 +66,8 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="clearfix"></div>
+                    </div>
                 </div>
             </header>
         </div>
@@ -82,34 +78,31 @@
             {% endblock %}
 
                         <!--/shipping-->
-        <section class="shipping-wthree">
-            <div class="shiopping-grids d-lg-flex">
-                <div class="col-lg-4 shiopping-w3pvt-gd text-center editContent" style="outline: none; cursor: inherit;">
-                    <div class="icon-gd"><span class="fa fa-truck" aria-hidden="true" style="outline: none; cursor: inherit;"></span>
+         <section class="shipping-wthree">
+            <div class="shiopping-grids d-lg-flex editContent mt-2">
+                <div class="col-lg-4 shiopping-w3pvt-gd text-center editContent">
+                    <div class="icon-gd"><span class="fa fa-truck" aria-hidden="true"></span>
                     </div>
                     <div class="icon-gd-info">
-                        <h3 class="editContent" style="outline: none; cursor: inherit;">BETTER SATISFACTION</h3>
-                        <p class="editContent" style="outline: none; cursor: inherit;">With all users</p>
+                        <h3 class="editContent">FREE SHIPPING</h3>
+                        <p class="editContent">On First Order of the Month</p>
                     </div>
                 </div>
-                <div class="col-lg-4 shiopping-w3pvt-gd sec text-center editContent" style="outline: none; cursor: inherit;">
-                    <div class="icon-gd"><span class="fa fa-bullhorn" aria-hidden="true" style="outline: none; cursor: inherit;"></span></div>
+                <div class="col-lg-4 shiopping-w3pvt-gd sec text-center editContent">
+                    <div class="icon-gd"><span class="fa fa-bullhorn" aria-hidden="true"></span></div>
                     <div class="icon-gd-info">
-                        <h3 class="editContent" style="outline: none; cursor: inherit;">FREE RESPONSE</h3>
-                        <p class="editContent" style="outline: none; cursor: inherit;">On 1st transaction in 30 days</p>
+                        <h3 class="editContent">FREE RETURN</h3>
+                        <p class="editContent">On 1st exchange in 30 days</p>
                     </div>
                 </div>
-                <div class="col-lg-4 shiopping-w3pvt-gd text-center editContent" style="outline: none; cursor: inherit;">
-                    <div class="icon-gd"> <span class="fa fa-gift" aria-hidden="true" style="outline: none; cursor: inherit;"></span></div>
+                <div class="col-lg-4 shiopping-w3pvt-gd text-center editContent">
+                    <div class="icon-gd"> <span class="fa fa-gift" aria-hidden="true"></span></div>
                     <div class="icon-gd-info">
-                        <h3 class="editContent" style="outline: none; cursor: inherit;">MEMBER BENEFITS</h3>
-                        <p class="editContent" style="outline: none; cursor: inherit;">Register &amp; get access to different users</p>
+                        <h3 class="editContent">MEMBER DISCOUNT</h3>
+                        <p class="editContent">Register &amp; get access to different people</p>
                     </div>
-
-
                 </div>
             </div>
-
         </section>
         <!--//shipping-->
         <!-- footer -->
@@ -181,6 +174,6 @@
 
 
 
-
+</div>
 </body>
 </html>
