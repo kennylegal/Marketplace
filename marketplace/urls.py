@@ -19,7 +19,7 @@ from django.urls import path, include
 from .views import index
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('marketplace/', admin.site.urls),
     path('', include('services.urls')),
 
     path('', index, name='indexPage'),
