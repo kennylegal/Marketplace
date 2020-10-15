@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect
 
 
 def unauthorized_user(view_func):
@@ -18,7 +18,7 @@ def staff_only(view_func):
         if request.user.is_staff:
             return view_func(request, *args, **kwargs)
         else:
-            return render(request, 'marketplace/401.html')
+            return HttpResponse('You are not authorised to view this page')
     return wrapper_func
 
 
@@ -28,7 +28,7 @@ def admin_only(view_func):
         if request.user.is_superuser:
             return view_func(request, *args, **kwargs)
         else:
-            return render(request, 'marketplace/401.html')
+            return HttpResponse('You are not authorised to view this page')
 
     return wrapper_func
 
