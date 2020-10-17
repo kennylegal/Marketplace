@@ -66,7 +66,7 @@ def __update_if_post_method(context, business_id: int, request):
 
 
 @login_required(login_url='login')
-def update(request):
+def update(request, business_id):
     business_id = request.user.businessowner.id
     owner = BusinessOwner.objects.get(id=business_id)
     context = {
@@ -109,7 +109,7 @@ def __update_if_method_is_post(context, customer_name, request):
 
 
 @login_required(login_url='login')
-def update_customer(request):
+def update_customer(request, customer_name):
     customer_name = request.user.customer.name
     customer = get_object_or_404(Customer, name=customer_name)
     context = {
