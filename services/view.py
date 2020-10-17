@@ -9,7 +9,7 @@ from .models import BusinessOwner, Customer, MailList
 # Create your views here.
 
 
-
+@login_required(login_url='login')
 def userPage(request):
     customer_name = request.user.customer.name
     id = request.user.businessowner.id
@@ -22,6 +22,7 @@ def userPage(request):
     return render(request, 'marketplace/Profile/Single.html', context)
 
 
+@login_required(login_url='login')
 def businessProfile(request):
     business_id = request.user.businessowner.id
     name = request.user.customer.name
@@ -151,3 +152,5 @@ def mailview(request):
     if request.method == 'POST' and context['saved']:
         return redirect('indexPage')
     return render(request, 'marketplace/Profile/index.html', context)
+#
+# def __commentinput(comments, request):
