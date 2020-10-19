@@ -58,8 +58,10 @@ class MailList(models.Model):
 
 
 class Comment(models.Model):
+    to = models.ForeignKey(BusinessOwner, on_delete=models.CASCADE)
     name = models.ForeignKey(User, on_delete=models.CASCADE)
     comment = models.TextField()
 
     def __str__(self):
         return str(self.name)
+

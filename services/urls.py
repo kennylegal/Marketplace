@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .view import userPage, businessProfile, update_customer, update, search, mailview
+from .view import userPage, businessProfile, update_customer, update, search, mailview, commentcreate
 from django.contrib.auth import views as auth_views
 
 
@@ -20,9 +20,11 @@ urlpatterns = [
     path('', include('services.views.Others.urls')),
     path('staff/', include('services.views.Staff.urls')),
 
-    # path('reset_password/', auth_views.PasswordResetView.as_view(), name='reset_password'),
-    # path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
-    # path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
-    # path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete')
+    path('comment/<int:business_id>/', commentcreate, name='comment'),
+
+    path('reset_password/', auth_views.PasswordResetView.as_view(), name='reset_password'),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reset/<uidb64>/<token>', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete')
 
 ]

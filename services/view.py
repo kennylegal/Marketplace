@@ -1,10 +1,11 @@
+from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, Http404, HttpRequest
 from django.shortcuts import render, redirect, get_object_or_404
 from services.dto.customer_dto import CustomerUpdate
 from .dto.business_dto import BusinessUpdateDto
 from .service_factory import service_container
-from .models import BusinessOwner, Customer, MailList
+from .models import BusinessOwner, Customer, MailList, Comment
 
 # Create your views here.
 
@@ -13,7 +14,6 @@ from .models import BusinessOwner, Customer, MailList
 def userPage(request):
     customer_name = request.user.customer.name
     id = request.user.businessowner.id
-    print(id)
     details = service_container.customer_management_service().details(customer_name)
     context = {
         'details': details,
@@ -25,12 +25,14 @@ def userPage(request):
 @login_required(login_url='login')
 def businessProfile(request):
     business_id = request.user.businessowner.id
+    owners_comment = Comment.objects.filter(to=business_id)
     name = request.user.customer.name
     business = service_container.business_owner_service().details(business_id)
     context = {
         "business": business,
         "name": name,
-        'business_id': business_id
+        'business_id': business_id,
+        'comment':owners_comment
     }
     return render(request, 'marketplace/Profile/Single2.html', context)
 
@@ -152,5 +154,24 @@ def mailview(request):
     if request.method == 'POST' and context['saved']:
         return redirect('indexPage')
     return render(request, 'marketplace/Profile/index.html', context)
-#
-# def __commentinput(comments, request):
+
+
+@login_required(login_url='login')
+def commentcreate(request, business_id):
+    owner = get_object_or_404(BusinessOwner, id=business_id)
+    user = request.user.username
+    form = CommentForm(request.POST or None)
+    if owner is not None:
+        form = CommentForm(request.POST or None)
+        if form.is_valid():
+            comments = form.cleaned_data.get('comment')
+            Comment.objects.create(to=owner, name=user, comment=comments)
+            return redirect('business/<int:business_id>/')
+        else:
+            print('form not valid')
+    else:
+        print('Customer does not exist')
+    context = {
+        'form': form
+    }
+    return render(request, 'marketplace/comment/create.html', context)

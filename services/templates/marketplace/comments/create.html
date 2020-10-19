@@ -1,0 +1,10 @@
+<html>
+<body>
+
+    <form action="/comment/<int:business_id>/" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+
+</body>
+</html>
