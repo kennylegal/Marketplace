@@ -159,7 +159,7 @@ def mailview(request):
 @login_required(login_url='login')
 def commentcreate(request, business_id):
     owner = get_object_or_404(BusinessOwner, id=business_id)
-    user = request.user.username
+    user = request.user
     form = CommentForm(request.POST or None)
     if owner is not None:
         form = CommentForm(request.POST or None)
