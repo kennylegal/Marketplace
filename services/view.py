@@ -166,12 +166,14 @@ def commentcreate(request, business_id):
         if form.is_valid():
             comments = form.cleaned_data.get('comment')
             Comment.objects.create(to=owner, name=user, comment=comments)
-            return redirect('business/<int:business_id>/')
+            return redirect('userPage')
         else:
             print('form not valid')
     else:
         print('Customer does not exist')
     context = {
-        'form': form
+        'form': form,
+        'owner' : owner,
+        'business' : business_id
     }
     return render(request, 'marketplace/comments/create.html', context)
