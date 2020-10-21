@@ -174,4 +174,4 @@ def commentcreate(request, business_id):
     context = {
         'form': form
     }
-    return render(request, 'marketplace/comment/create.html', context)
+    return render(request, 'marketplace/comments/create.html', context)
